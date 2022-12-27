@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /app
+    session:
+      timeout: 60s
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+  flyway:
+    baseline-on-migrate: true
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.H2Dialect
+      ddl-auto: none #none / create
+      temp:
+        use_jdbc_metadata_defaults: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console #database will be available under http://localhost:8080/app/h2-console
+      settings:
+        web-allow-others: true
